@@ -1,6 +1,6 @@
 # 🧑🏻‍💻⌨️ Codember
 
-Codember challenge repository, My own solutions of each challenge in [codember.dev](https://codember.dev/)
+Codember challenge repository, My own solutions for each challenge in [codember.dev](https://codember.dev/)
 
 ```
                  /\ \                       /\ \
