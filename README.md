@@ -16,3 +16,4 @@ Codember challenge repository, My own solutions for each challenge in [codember.
 | Challenges | Solutions                                                        |
 | --------- | --------------------------------------------------------------- |
 | 1         | [View](https://github.com/peckas13/codember/tree/main/Challenge1) |
+| 2         | [View](https://github.com/peckas13/codember/blob/main/Challenge2/solution.js) |
