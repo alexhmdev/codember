@@ -1,0 +1,43 @@
+/* Challenge 4: Dude, I lost my password
+
+Problem
+
+A friend bought 5 BitCoins in 2008. The problem is that he had it in a digital wallet... and he doesn't remember the password!
+
+He asked us for help. And he gave us some clues:
+
+- It's a 5-digit password.
+- The password has the number 5 repeated at least two times.
+- The number to the right is always greater than or equal to the one on the left.
+
+He gave us some examples:
+55678 is correct, it fulfills everything
+12555 is correct, it fulfills everything
+55555 is correct, it fulfills everything
+12345 is incorrect, it does not have the 5 repeated.
+57775 is incorrect, the numbers do not go in increasing order
+
+He says that the password is between the numbers 11098 and 98123. Can we tell him how many numbers fulfill those rules within that range?  */
+const MIN = 11098;
+const MAX = 98123;
+const findPassword = () => {
+  let passwords = [];
+
+  for (let current = MIN; current <= MAX; current++) {
+    let password = String(current);
+
+    if (
+      Number(password.charAt(0)) >= Number(password.charAt(1)) &&
+      password.includes('55')
+    ) {
+      if (password == '55678') console.log('hellow');
+      passwords.push(password);
+    }
+  }
+  return {
+    total: passwords.length,
+    possible: passwords[55],
+  };
+};
+
+console.log(findPassword());
