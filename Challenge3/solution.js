@@ -25,8 +25,7 @@ Remember that a color zebra is when two colors alternate one after the other. If
 What we want to calculate is the longest color zebra and the last color of that color sequence.
 */
 
-const colors = ['red', 'blue', 'red', 'blue', 'green']; // 4, blue
-
+const colors = require('./colors.json');
 /**
  *@param {string[]} colors
  */
@@ -34,31 +33,29 @@ const zebra = (colors) => {
   let zebrasArray = [];
   let zebrasLists = [];
   let zebrasLength = [];
-  for (let i = 0; i < colors.length; i++) {
+  for (let i = 1; i < colors.length; i++) {
     const prev = colors[i - 1];
     const current = colors[i];
     const next = colors[i + 1];
-    if (prev === next || prev == undefined || next == undefined) {
+    if (prev === next) {
       zebrasArray.push(current);
     } else {
-      if (zebrasArray.length > 0) {
-        zebrasLists.push(zebrasArray);
-        zebrasArray = [];
-      }
+      zebrasArray.push(current);
+      zebrasLists.push(zebrasArray);
+      zebrasArray = [];
+      zebrasArray.push(current);
     }
   }
-  console.log(zebrasLists);
-  // zebrasLists = zebrasLists.filter((list) => list.length > 0);
-  // zebrasLength = zebrasLists.map((list) => list.length);
-  //   let zebraLength = Math.max(...zebrasLength);
-  //   zebrasLength
-  // let zebraArray = zebrasLists
-  //   .filter((zebra) => zebra.length === Math.max(...zebrasLength))
-  //   .flat();
-  // return {
-  //   zebraLength,
-  //   lastZebraColor: zebraArray[zebraLength - 1]
-  // };
+  zebrasLists = zebrasLists.filter((list) => list.length > 0);
+  zebrasLength = zebrasLists.map((list) => list.length);
+  let zebraLength = Math.max(...zebrasLength);
+  let zebraArray = zebrasLists
+    .filter((zebra) => zebra.length === Math.max(...zebrasLength))
+    .flat();
+  return {
+    zebraLength,
+    lastZebraColor: zebraArray[zebraLength - 1],
+  };
 };
 
 console.log(zebra(colors));
